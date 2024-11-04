@@ -1,0 +1,48 @@
+<div class="bg-gray-100 py-16">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-4">{{ section.settings.title }}</h2>
+    <p class="text-gray-600 mb-8">{{ section.settings.text }}</p>
+    
+    {% form 'customer', class: 'max-w-md mx-auto' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="flex gap-4">
+        <input
+          type="email"
+          name="contact[email]"
+          placeholder="{{ 'newsletter.label' | t }}"
+          class="flex-1 px-4 py-3 rounded-full border focus:outline-none focus:border-pink-500"
+          required
+        >
+        <button type="submit" class="px-8 py-3 bg-black text-white rounded-full hover:bg-pink-500 transition-colors">
+          {{ 'newsletter.button_label' | t }}
+        </button>
+      </div>
+    {% endform %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Subscribe to our newsletter"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Be the first to know about new collections and exclusive offers"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter",
+      "category": "Promotional"
+    }
+  ]
+}
+{% endschema %}

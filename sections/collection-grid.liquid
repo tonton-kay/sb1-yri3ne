@@ -1,0 +1,70 @@
+{% paginate collection.products by section.settings.products_per_page %}
+<div class="collection-grid">
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    {% for product in collection.products %}
+      <div class="product-card group">
+        <div class="relative overflow-hidden rounded-lg">
+          <a href="{{ product.url }}">
+            <img
+              src="{{ product.featured_image | img_url: '500x' }}"
+              alt="{{ product.featured_image.alt | escape }}"
+              class="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
+            >
+          </a>
+          {% if product.compare_at_price > product.price %}
+            <span class="absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs rounded-full">
+              -{{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | round }}%
+            </span>
+          {% endif %}
+          <button class="quick-add-btn" data-quick-add data-variant-id="{{ product.first_available_variant.id }}">
+            Ajouter au panier
+          </button>
+        </div>
+        
+        <div class="mt-4">
+          <h3 class="text-sm text-gray-700 truncate">{{ product.title }}</h3>
+          <div class="mt-1 flex items-center justify-between">
+            <div>
+              <span class="text-sm font-medium text-gray-900">{{ product.price | money }}</span>
+              {% if product.compare_at_price > product.price %}
+                <span class="ml-2 text-sm text-gray-500 line-through">{{ product.compare_at_price | money }}</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if paginate.pages > 1 %}
+    <div class="pagination flex justify-center items-center space-x-4 mt-8">
+      {% if paginate.previous %}
+        <a href="{{ paginate.previous.url }}" class="text-gray-600 hover:text-gray-900">← Précédent</a>
+      {% endif %}
+
+      <span class="text-gray-900">Page {{ paginate.current_page }} sur {{ paginate.pages }}</span>
+
+      {% if paginate.next %}
+        <a href="{{ paginate.next.url }}" class="text-gray-600 hover:text-gray-900">Suivant →</a>
+      {% endif %}
+    </div>
+  {% endif %}
+</div>
+{% endpaginate %}
+
+{% schema %}
+{
+  "name": "Collection Grid",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 48,
+      "step": 8,
+      "label": "Products per page",
+      "default": 24
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #ff4d8c;
+    --secondary: #1a1a1a;
+  }
+
+  body {
+    @apply antialiased text-gray-900 bg-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Navigation */
+  .nav-link {
+    @apply text-sm font-medium hover:text-primary transition-colors;
+  }
+
+  .nav-link.active {
+    @apply text-primary;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    @apply relative h-[600px] overflow-hidden;
+  }
+
+  .hero-content {
+    @apply absolute inset-0 flex items-center justify-center text-center text-white z-10;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+  }
+
+  /* Product Cards */
+  .product-card {
+    @apply relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300;
+  }
+
+  .product-image-wrapper {
+    @apply relative aspect-[3/4] overflow-hidden rounded-t-lg;
+  }
+
+  .product-image {
+    @apply w-full h-full object-cover transition-transform duration-300 group-hover:scale-105;
+  }
+
+  .product-badge {
+    @apply absolute top-2 left-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded-full;
+  }
+
+  .product-info {
+    @apply p-4;
+  }
+
+  .product-title {
+    @apply text-sm font-medium line-clamp-2;
+  }
+
+  .product-price {
+    @apply mt-1 text-lg font-bold text-primary;
+  }
+
+  .product-original-price {
+    @apply ml-2 text-sm text-gray-400 line-through;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary/90 transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-primary border border-primary px-6 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition-colors;
+  }
+
+  /* Collection Grid */
+  .collection-grid {
+    @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6;
+  }
+
+  /* Category Cards */
+  .category-card {
+    @apply relative overflow-hidden rounded-lg group cursor-pointer;
+  }
+
+  .category-image {
+    @apply w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105;
+  }
+
+  .category-overlay {
+    @apply absolute inset-0 bg-black/40 flex items-center justify-center text-white;
+  }
+
+  /* Newsletter */
+  .newsletter-section {
+    @apply bg-gray-50 py-16;
+  }
+
+  .newsletter-input {
+    @apply w-full px-4 py-3 rounded-full border focus:outline-none focus:border-primary;
+  }
+
+  /* Footer */
+  .footer-link {
+    @apply text-gray-300 hover:text-primary transition-colors;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero-section {
+      @apply h-[400px];
+    }
+
+    .collection-grid {
+      @apply grid-cols-2;
+    }
+  }
+
+  /* Animation Classes */
+  .fade-in {
+    @apply opacity-0 animate-[fadeIn_0.5s_ease-in_forwards];
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .slide-up {
+    @apply translate-y-4 opacity-0 animate-[slideUp_0.5s_ease-out_forwards];
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+}

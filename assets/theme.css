@@ -1,0 +1,155 @@
+/* Base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Properties */
+:root {
+  --color-primary: #000000;
+  --color-secondary: #ffffff;
+  --color-accent: #ff4d4d;
+  --font-heading: Assistant, sans-serif;
+  --font-body: Assistant, sans-serif;
+}
+
+/* Typography */
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Buttons */
+.btn {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black;
+}
+
+.btn-secondary {
+  @apply bg-white text-black border-black hover:bg-gray-100;
+}
+
+/* Product Cards */
+.product-card {
+  @apply relative overflow-hidden group;
+}
+
+.product-card img {
+  @apply transition-transform duration-300 group-hover:scale-105;
+}
+
+.quick-add-btn {
+  @apply absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black text-white px-4 py-2 rounded-full 
+         opacity-0 group-hover:opacity-100 transition-opacity duration-200;
+}
+
+/* Newsletter Form */
+.newsletter-input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-l-full focus:outline-none focus:ring-2 focus:ring-black;
+}
+
+.newsletter-button {
+  @apply px-6 py-2 bg-black text-white rounded-r-full hover:bg-gray-800 transition-colors;
+}
+
+/* Announcement Bar */
+.announcement-bar {
+  @apply bg-black text-white py-2 text-center text-sm;
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  @apply fixed inset-0 bg-black bg-opacity-50 z-50;
+}
+
+.mobile-menu-content {
+  @apply fixed right-0 top-0 bottom-0 w-64 bg-white p-6 overflow-y-auto;
+}
+
+/* Flash Sale Badge */
+.sale-badge {
+  @apply absolute top-2 left-2 bg-red-500 text-white px-2 py-1 text-xs rounded-full;
+}
+
+/* Cart Drawer */
+.cart-drawer {
+  @apply fixed right-0 top-0 h-full w-96 bg-white shadow-xl transform translate-x-full transition-transform duration-300;
+}
+
+.cart-drawer.open {
+  @apply translate-x-0;
+}
+
+/* Collection Grid */
+.collection-grid {
+  @apply grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4;
+}
+
+/* Product Images */
+.product-image-zoom {
+  @apply cursor-zoom-in transition-transform duration-300 hover:scale-105;
+}
+
+/* Reviews */
+.star-rating {
+  @apply flex items-center space-x-1;
+}
+
+.star {
+  @apply text-yellow-400;
+}
+
+/* Size Guide */
+.size-guide-table {
+  @apply w-full text-left border-collapse;
+}
+
+.size-guide-table th,
+.size-guide-table td {
+  @apply border p-2;
+}
+
+/* Wishlist */
+.wishlist-button {
+  @apply absolute top-2 right-2 p-2 rounded-full bg-white shadow-md hover:bg-gray-100;
+}
+
+/* Search Results */
+.search-results {
+  @apply absolute top-full left-0 right-0 bg-white shadow-lg rounded-b-lg overflow-hidden z-50;
+}
+
+/* Pagination */
+.pagination {
+  @apply flex justify-center items-center space-x-4 mt-8;
+}
+
+.pagination-item {
+  @apply px-3 py-1 rounded-full hover:bg-gray-100;
+}
+
+.pagination-item.active {
+  @apply bg-black text-white;
+}
+
+/* Loading States */
+.loading {
+  @apply animate-pulse bg-gray-200;
+}
+
+/* Error States */
+.error-message {
+  @apply text-red-500 text-sm mt-1;
+}
+
+/* Success States */
+.success-message {
+  @apply text-green-500 text-sm mt-1;
+}

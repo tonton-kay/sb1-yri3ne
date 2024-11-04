@@ -1,0 +1,62 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/hero-banner.jpg",
+        "title": "Summer Collection 2024",
+        "text": "Discover the latest trends in fashion",
+        "button_label": "Shop Now",
+        "button_link": "/collections/all"
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "collection": "frontpage",
+        "products_to_show": 8,
+        "show_view_all": true
+      }
+    },
+    "promo-grid": {
+      "type": "promo-grid",
+      "blocks": {
+        "promo_1": {
+          "type": "promo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/promo1.jpg",
+            "title": "New Arrivals",
+            "text": "Check out our latest collection",
+            "button_label": "Shop Now",
+            "button_link": "/collections/new-arrivals"
+          }
+        },
+        "promo_2": {
+          "type": "promo",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/promo2.jpg",
+            "title": "Summer Sale",
+            "text": "Up to 50% off selected items",
+            "button_label": "Shop Sale",
+            "button_link": "/collections/sale"
+          }
+        }
+      },
+      "block_order": ["promo_1", "promo_2"]
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "title": "Subscribe to our newsletter",
+        "text": "Be the first to know about new collections and exclusive offers"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "featured-collection",
+    "promo-grid",
+    "newsletter"
+  ]
+}

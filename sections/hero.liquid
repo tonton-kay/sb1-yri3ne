@@ -1,0 +1,62 @@
+<div class="relative h-[600px]">
+  {% if section.settings.image != blank %}
+    <img
+      src="{{ section.settings.image | img_url: '2000x' }}"
+      alt="{{ section.settings.title }}"
+      class="w-full h-full object-cover"
+    >
+  {% endif %}
+  <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+    <div class="text-center text-white">
+      <h1 class="text-5xl font-bold mb-4">{{ section.settings.title }}</h1>
+      <p class="text-xl mb-8">{{ section.settings.text }}</p>
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link }}" class="bg-white text-black px-8 py-3 rounded-full font-semibold hover:bg-pink-500 hover:text-white transition-colors">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Summer Collection 2024"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Discover the latest trends in fashion"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "category": "Hero"
+    }
+  ]
+}
+{% endschema %}

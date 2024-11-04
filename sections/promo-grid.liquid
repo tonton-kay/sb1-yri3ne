@@ -1,0 +1,83 @@
+<div class="max-w-7xl mx-auto py-12 px-4">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {% for block in section.blocks %}
+      {% if block.type == 'promo' %}
+        <div class="relative overflow-hidden rounded-lg group" {{ block.shopify_attributes }}>
+          {% if block.settings.image != blank %}
+            <img
+              src="{{ block.settings.image | img_url: '800x' }}"
+              alt="{{ block.settings.title }}"
+              class="w-full h-[400px] object-cover transition-transform duration-300 group-hover:scale-105"
+            >
+          {% endif %}
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <div class="text-center text-white">
+              <h2 class="text-2xl font-bold mb-2">{{ block.settings.title }}</h2>
+              <p class="mb-4">{{ block.settings.text }}</p>
+              {% if block.settings.button_label != blank %}
+                <a href="{{ block.settings.button_link }}" class="inline-block bg-white text-black px-6 py-2 rounded-full hover:bg-pink-500 hover:text-white transition-colors">
+                  {{ block.settings.button_label }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Promo Grid",
+  "blocks": [
+    {
+      "type": "promo",
+      "name": "Promotional Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Promotional Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Promotional description goes here"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promo Grid",
+      "blocks": [
+        {
+          "type": "promo"
+        },
+        {
+          "type": "promo"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

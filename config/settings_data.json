@@ -1,0 +1,47 @@
+{
+  "current": {
+    "colors_solid_button_labels": "#FFFFFF",
+    "colors_accent_1": "#121212",
+    "colors_accent_2": "#334FB4",
+    "colors_text": "#121212",
+    "colors_outline_button_labels": "#121212",
+    "colors_background_1": "#FFFFFF",
+    "colors_background_2": "#F3F3F3",
+    "type_header_font": "assistant_n4",
+    "type_body_font": "assistant_n4",
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_instagram_link": "",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "show_announcement": true,
+          "announcement_text": "🔥 Soldes d'été jusqu'à -80% + 10% EXTRA avec le code: ETE2024",
+          "announcement_text_2": "✨ Livraison GRATUITE dès 29€ d'achat",
+          "announcement_text_3": "🎁 -15% sur votre première commande",
+          "enable_autoplay": true
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo_width": 100,
+          "menu": "main-menu",
+          "show_announcement": true,
+          "announcement_text": "Free shipping on orders over $50"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "menu_1_title": "Shop",
+          "footer_menu_1": "footer",
+          "menu_2_title": "Company",
+          "footer_menu_2": "footer",
+          "copyright_text": "All rights reserved."
+        }
+      }
+    }
+  }
+}

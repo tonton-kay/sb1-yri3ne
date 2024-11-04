@@ -1,0 +1,61 @@
+{% if section.settings.show_announcement %}
+<div class="announcement-bar" role="region" aria-label="Announcement">
+  <div class="page-width">
+    {% if section.settings.announcement_text != blank %}
+      <div class="announcement-slider" data-autoplay="{{ section.settings.enable_autoplay }}">
+        <div class="announcement-slide">
+          <p class="announcement-text">{{ section.settings.announcement_text }}</p>
+        </div>
+        {% if section.settings.announcement_text_2 != blank %}
+          <div class="announcement-slide">
+            <p class="announcement-text">{{ section.settings.announcement_text_2 }}</p>
+          </div>
+        {% endif %}
+        {% if section.settings.announcement_text_3 != blank %}
+          <div class="announcement-slide">
+            <p class="announcement-text">{{ section.settings.announcement_text_3 }}</p>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "🔥 Soldes d'été jusqu'à -80% + 10% EXTRA avec le code: ETE2024"
+    },
+    {
+      "type": "text",
+      "id": "announcement_text_2",
+      "label": "Announcement text 2",
+      "default": "✨ Livraison GRATUITE dès 29€ d'achat"
+    },
+    {
+      "type": "text",
+      "id": "announcement_text_3",
+      "label": "Announcement text 3",
+      "default": "🎁 -15% sur votre première commande"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable autoplay",
+      "default": true
+    }
+  ]
+}
+{% endschema %}
